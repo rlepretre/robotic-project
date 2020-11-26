@@ -1,4 +1,4 @@
-import pygame
+#import pygame
 import time
  
 BLACK = (0, 0, 0)
