@@ -10,10 +10,10 @@ while(True):
     if(ser.in_waiting > 0):
         line = ser.readline().decode('utf-8').rstrip()
         print("line is: " + line)
-        line = line.split(";")
-        dist = int(line[0])
-        case = int(line[1])
-        ser.write(3)
+        # line = line.split(";")
+        # dist = int(line[0])
+        
+        case = int(line)
         if case == 1: #Cul-de-sac
             ser.write(3)
             print("case 1")

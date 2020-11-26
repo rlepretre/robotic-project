@@ -75,7 +75,7 @@ void loop() {
   if (dir==1){ // si dir==1 move_forward
     if (MurGauche<30 & MurDroit<30) {
       if (MurAvant == 1){
-        Serial.write(1);
+        Serial.print(1);
         delay(100);
         dir=-1;
         RP=readSerialPort();
@@ -83,32 +83,32 @@ void loop() {
     } else if (MurGauche>30) {
       if (MurDroit<30) {
         if (MurAvant == 1) {
-          Serial.write(2);
+          Serial.print(2);
           delay(100);
           RP=readSerialPort();
         } else if (MurAvant ==0){
-          Serial.write(3);
+          Serial.print(3);
           delay(100);
           RP=readSerialPort();
         }
       } else {
         if (MurAvant == 1) {
-          Serial.write(4);
+          Serial.print(4);
           delay(100);
           RP=readSerialPort();
         } else if (MurAvant ==0){
-          Serial.write(5);
+          Serial.print(5);
           delay(100);
           RP=readSerialPort();
         }
       }
     } else if (MurDroit>30 && MurGauche<30){
       if (MurAvant == 1) {
-          Serial.write(6);
+          Serial.print(6);
           delay(100);
           RP=readSerialPort();
         } else if (MurAvant ==0){
-          Serial.write(7);
+          Serial.print(7);
           delay(100);
           RP=readSerialPort();
         }
@@ -117,7 +117,7 @@ void loop() {
   } else if (dir==-1) { //if dir==- move_backward
     if (MurGauche<30 & MurDroit<30) {
       if (MurArriere == 1){
-        Serial.write(-1);
+        Serial.print(-1);
         delay(100);
         dir=1;
         RP=readSerialPort();
@@ -125,32 +125,32 @@ void loop() {
     } else if (MurGauche>30) {
       if (MurDroit<30) {
         if (MurArriere == 1) {
-          Serial.write(-2);
+          Serial.print(-2);
           delay(100);
           RP=readSerialPort();
         } else if (MurArriere ==0){
-          Serial.write(-3);
+          Serial.print(-3);
           delay(100);
           RP=readSerialPort();
         }
       } else {
         if (MurArriere == 1) {
-          Serial.write(-4);
+          Serial.print(-4);
           delay(100);
           RP=readSerialPort();
         } else if (MurArriere ==0){
-          Serial.write(-5);
+          Serial.print(-5);
           delay(100);
           RP=readSerialPort();
         }
       }
     } else if (MurDroit>30 && MurGauche<30){
       if (MurArriere == 1) {
-          Serial.write(-6);
+          Serial.print(-6);
           delay(100);
           RP=readSerialPort();
         } else if (MurArriere ==0){
-          Serial.write(-7);
+          Serial.print(-7);
           delay(100);
           RP=readSerialPort();
         }
@@ -272,7 +272,7 @@ float distance;
 int readSerialPort() {
   if (Serial.available()) {
     delay(10);
-      return (int)Serial.read();
+      return (int)Serial.readStringUntil('\n');;
   } 
   else {
     return 0;
